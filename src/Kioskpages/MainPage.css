@@ -76,9 +76,9 @@ html {
   background-color: #e5e676;
 }
 
-.Main-center-text-bar {
+.kioskmain-center-text-bar {
   position: absolute;
-  top: 50%;
+  top: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: calc(100% - 40px); /* 양쪽 20px 여백을 위한 너비 계산 */
@@ -89,8 +89,4 @@ html {
   color: black;
   text-align: center;
   z-index: 2; /* 텍스트 바가 다른 콘텐츠 위에 오도록 설정 */
-}
-
-.center-text-bar:hover {
-  background-color: #e5e676;
 }

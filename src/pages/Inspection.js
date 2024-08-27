@@ -11,6 +11,7 @@ const Inspection = () => {
   const userIdx = localStorage.getItem('userIdx'); // 로컬 스토리지에서 userIdx 가져오기
 
   const fetchOrders = async (orderDate) => {
+    console.log(`/petShop/inspection/selectOrder/${userIdx}/${orderDate}`)
     try {
       const response = await axios.get(`/petShop/inspection/selectOrder/${userIdx}/${orderDate}`);
       setOrders(response.data);

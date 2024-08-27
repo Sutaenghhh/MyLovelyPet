@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect, useMemo, useCallback } from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import axios from 'axios';
@@ -8,12 +7,14 @@ import './PetPage.css';
 import QRCodeScanner from '../Kioskcomponents/QRCodeScanner';
 import Swal from 'sweetalert2';
 import { debounce } from 'lodash';
+import AutoCapture from '../Kioskcomponents/AutoCapture'; // AutoCapture 임포트
 
 const PetPage = () => {
   const { items, setItems, allCart, setAllCart } = useContext(UserContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const [pendingUpdates, setPendingUpdates] = useState([]);
+  const [videoStream, setVideoStream] = useState(null);
 
   const getSessionId = useCallback(() => {
     if (typeof window !== 'undefined') {
@@ -37,7 +38,7 @@ const PetPage = () => {
   const fetchCartList = useCallback(async () => {
     try {
       const sessionId = getSessionId();
-      const response = await axios.get('http://10.10.10.110:8090/petShop/cart/cartList', {
+      const response = await axios.get('/petShop/cart/cartList', {
         params: { sessionId }
       });
 
@@ -66,7 +67,7 @@ const PetPage = () => {
 
   const debouncedUpdateCartOnServer = useCallback(
     debounce((sessionId, pdIdx, cartCount) => {
-      axios.put('/api/petShop/cart/updateCart', [
+      axios.put('/petShop/cart/updateCart', [
         {
           sessionId,
           pdIdx,
@@ -80,7 +81,6 @@ const PetPage = () => {
           icon: 'error',
           confirmButtonText: '확인'
         });
-        // alert('장바구니를 업데이트하는 중 오류가 발생했습니다. 다시 시도해 주세요.');
       });
     }, 300), []
   );
@@ -93,9 +93,10 @@ const PetPage = () => {
     setItems(updatedItems);
 
     setPendingUpdates(prev => prev.filter(update => update.pdIdx !== pdIdx));
-
+    
     try {
-      await axios.delete('http://10.10.10.110:8090/petShop/cart/deleteCart', {
+      console.log('/petShop/cart/updateCart')
+      await axios.delete('/petShop/cart/deleteCartItem', {
         params: { sessionId, pdIdx }
       });
       Swal.fire({
@@ -112,7 +113,6 @@ const PetPage = () => {
         icon: 'error',
         confirmButtonText: '확인'
       });
-      // alert('서버에서 항목을 삭제하는 중 오류가 발생했습니다. 다시 시도해 주세요.');
     }
   }, [getSessionId, items]);
 
@@ -141,9 +141,10 @@ const PetPage = () => {
   }, [items, debouncedUpdateCartOnServer, getSessionId]);
 
   const handlePayment = useCallback(async () => {
+    
     if (pendingUpdates.length > 0) {
       try {
-        await axios.put('http://10.10.10.110:8090/petShop/cart/updateCart', pendingUpdates);
+        await axios.put('/petShop/cart/updateCart', pendingUpdates);
         setPendingUpdates([]);
         navigate('/payment/checkout');
       } catch (error) {
@@ -154,52 +155,100 @@ const PetPage = () => {
           icon: 'error',
           confirmButtonText: '확인'
         });
-        // alert('장바구니를 업데이트하는 중 오류가 발생했습니다. 다시 시도해 주세요.');
       }
     } else {
       navigate('/payment/checkout');
     }
   }, [pendingUpdates, navigate]);
 
-  const sessionId = getSessionId();
+  const handleCapture = async (imageData) => {
+    localStorage.setItem('image', imageData); // 로컬 스토리지에 저장
+    console.log('Captured face image:', imageData);
+
+    try {
+      // 얼굴 이미지를 서버로 전송
+      await axios.post('/petShop/cart/customerFaceCompare', { image: imageData });
+     
+    } catch (error) {
+      console.error('Error sending face image:', error);
+     
+    }
+  };
+
+  useEffect(() => {
+    // 비디오 스트림을 설정하는 로직
+    const startVideoStream = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setVideoStream(stream);
+      } catch (error) {
+        console.error('Error accessing webcam:', error);
+        Swal.fire({
+          title: '웹캠 접근 오류',
+          text: '웹캠에 접근할 수 없습니다. 웹캠이 연결되어 있는지 확인해 주세요.',
+          icon: 'error',
+          confirmButtonText: '확인'
+        });
+      }
+    };
+
+    startVideoStream();
+
+    return () => {
+      if (videoStream) {
+        const tracks = videoStream.getTracks();
+        tracks.forEach(track => track.stop());
+      }
+    };
+  }, []);
 
   return (
     <div className="PetPage-Container">
       <div className="PetPage-TopHalf">
-        <QRCodeScanner sessionId={sessionId} onCartUpdated={fetchCartList} />
+        <QRCodeScanner sessionId={getSessionId()} onCartUpdated={fetchCartList} />
+        <AutoCapture 
+          videoStream={videoStream} 
+          onCapture={handleCapture} // 자동 캡처 후 처리할 함수
+        />
       </div>
       <div className="PetPage-BottomHalf">
         <div className="table-container">
           <table className="data-table">
             <tbody>
-              {allCart.map(item => (
-                <tr key={item.pdIdx}>
-                  <td>{item.pdName}</td>
-                  <td className="kiosk-button">
-                    <button
-                      onClick={() => handlecartCountChange(item.pdIdx, -1)}
-                      className="Kiosk-cartCount-button"
-                    ><span className="minus-sign">-</span></button>
-                    {item.cartCount}
-                    <button
-                      onClick={() => handlecartCountChange(item.pdIdx, 1)}
-                      className="Kiosk-cartCount-button"
-                    >+</button>
-                  </td>
-                  <td>{(item.pdPrice * item.cartCount).toLocaleString()}원</td>
-                  <td><button onClick={() => handleRemoveItem(item.pdIdx)} className='Trash_Button'><FaRegTrashAlt /></button></td>
+              {allCart.length > 0 ? (
+                allCart.map(item => (
+                  <tr key={item.pdIdx}>
+                    <td>{item.pdName}</td>
+                    <td className="kiosk-button">
+                      <button
+                        onClick={() => handlecartCountChange(item.pdIdx, -1)}
+                        className="Kiosk-cartCount-button"
+                      ><span className="minus-sign">-</span></button>
+                      {item.cartCount}
+                      <button
+                        onClick={() => handlecartCountChange(item.pdIdx, 1)}
+                        className="Kiosk-cartCount-button"
+                      >+</button>
+                    </td>
+                    <td>{(item.pdPrice * item.cartCount).toLocaleString()}원</td>
+                    <td><button onClick={() => handleRemoveItem(item.pdIdx)} className='Trash_Button'><FaRegTrashAlt /></button></td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">장바구니가 비어 있습니다.</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
         <div className="summary">
           <p className='Pet-total'>총 금액: {totalPrice.toLocaleString()}원</p>
         </div>
-        <button className="PetPage_button" onClick={handlePayment} disabled={totalPrice <= 0}>결제하기</button>
+        <button className="PetPage_button" onClick={handlePayment}>결제하기</button>
       </div>
       <div className="petPage-center-text-bar">
-        상품을 스캔 해 주세요
+        상품의 QR코드를 스캔 해 주세요
       </div>
     </div>
   );

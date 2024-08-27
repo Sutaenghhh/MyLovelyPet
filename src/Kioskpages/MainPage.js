@@ -32,13 +32,14 @@ const MainPage = () => {
         <img src={logo} alt="Main" className="main-image" />
       </div>
       <div className="main-bottom-half">
+      <div className="kioskmain-center-text-bar">
+        아래 시작하기 버튼을 눌러주세요
+      </div>
         <Link to="/petPage">
           <button className="Main_button">시작하기</button>
         </Link>
       </div>
-      <div className="main-center-text-bar">
-        아래 시작하기 버튼을 눌러주세요
-      </div>
+
     </div>
   );
 };

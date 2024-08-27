@@ -89,7 +89,7 @@ const ProductManagement = () => {
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url); // URL을 메모리에서 해제
     } catch (error) {
-      console.error('QR 코드 다운로드에 실패했습니다.', error);
+      console.error('QR 코드 다운로드에 실패했습니다.', error); 
       alert('QR 코드 다운로드에 실패했습니다.');
     }
   };

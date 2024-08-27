@@ -7,7 +7,7 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="header">
+    <header className="kiosk-header">
       <div className="header-left">
         {/* <button className="language-button"><IoIosGlobe size="40"/></button> */}
       </div>

@@ -25,7 +25,7 @@ export function SuccessPage() {
 
     async function confirm() {
       try {
-        const response = await fetch("http://10.10.10.110:8090/petShop/payment/confirm", {
+        const response = await fetch("/petShop/payment/confirm", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export function SuccessPage() {
 
       return () => clearInterval(timer);
     } else if (timeLeft === 0) {
-      navigate('/');
+      navigate('/kioskhome');
     }
   }, [timeLeft, isPopupOpen, navigate]);
 
@@ -88,7 +88,7 @@ export function SuccessPage() {
 
     if (sessionId) {
         try {
-            await axios.delete('http://10.10.10.110:8090/petShop/cart/deleteCart', {
+            await axios.delete('/petShop/cart/deleteCart', {
                 params: { sessionId }
             });
             localStorage.removeItem("sessionId");
@@ -106,7 +106,7 @@ export function SuccessPage() {
     }
 
     // 메인 페이지로 이동
-    navigate('/');
+    navigate('/kioskhome');
 };
 
   if (!isConfirmed) {

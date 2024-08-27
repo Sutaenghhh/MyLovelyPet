@@ -27,12 +27,13 @@
 }
 
 .orders-history th, .orders-history td {
+  border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 .orders-history th {
-  background-color: #f8f9fa;
+  background-color: #f2f2f2;
 }
 
 /* button {

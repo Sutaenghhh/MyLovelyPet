@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API URL 설정
-const API_URL = 'http://10.10.10.150:8090/api/stock';
+const API_URL = 'http://10.10.10.110:8090/api/stock';
 
 export const getStockData = async () => {
   try {

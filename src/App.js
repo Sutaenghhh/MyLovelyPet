@@ -61,7 +61,7 @@ const AppContent = () => {
     loadTossPayments(clientKey).then(tp => setTossPayments(tp));
   }, []);
 
-  const showFooter = !location.pathname.includes('/success') && location.pathname !== '/';
+  const showFooter = !location.pathname.includes('/success') && location.pathname !== '/kioskhome';
 
 // isKiosk 변수를 조건에 따라 설정
 let isKiosk = false; // 기본값을 false로 설정

@@ -11,7 +11,16 @@ const Alarm = () => {
   useEffect(() => {
     const fetchAlarms = async () => {
       try {
-        const response = await axios.get('/petShop/notice/findAll');
+        // 로컬 스토리지에서 userIdx 가져오기
+        const userIdx = localStorage.getItem('userIdx');
+
+        // userIdx가 존재하는지 확인
+        if (!userIdx) {
+          throw new Error('userIdx가 로컬 스토리지에 존재하지 않습니다.');
+        }
+
+        // userIdx를 포함한 요청 URL
+        const response = await axios.get(`/petShop/notice/findAll/${userIdx}`);
         if (response.status === 200) {
           setNoticeList(response.data);
         } else {
@@ -28,7 +37,6 @@ const Alarm = () => {
     fetchAlarms();
   }, []);
 
-  
   if (error) return <div>{error}</div>;
 
   return (

@@ -22,15 +22,16 @@ function PhoneNumberInput() {
     e.preventDefault();
 
 
-        // 휴대폰 번호가 11자리인지 확인
-        if (phoneNum.length !== 11) {
-          setErrorMessage("휴대폰 번호는 11자리여야 합니다."); // 에러 메시지 설정
-          return; // 제출 중단
-        }
+    // 휴대폰 번호가 11자리인지 확인
+    if (phoneNum.length !== 11) {
+     setErrorMessage("휴대폰 번호는 11자리여야 합니다."); // 에러 메시지 설정
+     return; // 제출 중단
+    }
+    
     try {
       console.log(phoneNum);
       console.log(paymentKey);
-      const response = await fetch("http://10.10.10.110:8090/petShop/payment/sendPaymentList", {
+      const response = await fetch("/petShop/payment/sendPaymentList", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -70,7 +71,7 @@ function PhoneNumberInput() {
 
     if (sessionId) {
       try {
-        await axios.delete('http://10.10.10.110:8090/petShop/cart/deleteCart', {
+        await axios.delete('/petShop/cart/deleteCart', {
           params: { sessionId }
         });
         localStorage.removeItem("sessionId");

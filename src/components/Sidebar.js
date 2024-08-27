@@ -39,7 +39,7 @@ const Sidebar = () => {
       ],
     },
     {
-      title: '상품관리',
+      title: '상품',
       icon: <FaTags />,
       subItems: [
         { title: '상품관리', path: '/productmanagement' },
@@ -49,7 +49,7 @@ const Sidebar = () => {
       title: 'CCTV',
       icon: <FaVideo />,
       subItems: [
-        { title: 'CCTV보기', path: '/cctv' },
+        { title: 'CCTV', path: '/cctv' },
       ],
     },
   ];

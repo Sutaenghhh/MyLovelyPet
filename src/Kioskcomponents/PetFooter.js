@@ -14,7 +14,7 @@ const Footer = () => {
     if (sessionId) {
       try {
         // 서버에 장바구니 항목 삭제 요청 보내기
-        await axios.delete('http://10.10.10.110:8090/petShop/cart/deleteCart', {
+        await axios.delete('/petShop/cart/deleteCart', {
           params: { sessionId }
         });
 
@@ -31,7 +31,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="kiosk-footer">
       <button className="back-button" onClick={handleGoBack}>
         <IoIosHome />
       </button>
