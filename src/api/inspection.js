@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API URL 설정
-const API_URL = 'http://localhost:5000/api/inspections';
+const API_URL = '/api/inspections';
 
 // 서버에 검수 데이터를 저장하는 함수
 export const saveInspection = (inspection) => {

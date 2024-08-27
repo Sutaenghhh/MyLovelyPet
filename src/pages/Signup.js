@@ -91,7 +91,7 @@ const SignUp = () => {
         ]
       };
 
-      const response = await axios.post('/petShop/user/business', requestData);
+      const response = await axios.post('/api/petShop/user/business', requestData);
 
       const businessData = response.data.data[0];
 
@@ -131,7 +131,7 @@ const SignUp = () => {
     const email = `${formData.emailUser}@${isCustomDomain ? formData.customDomain : formData.emailDomain}`;
     
     try {
-      await axios.get(`/petShop/user/sendEmailCode/${email}`);
+      await axios.get(`/api/petShop/user/sendEmailCode/${email}`);
       setVerificationModal(true);
     } catch (error) {
       console.error('이메일 인증 요청 실패:', error);
@@ -147,7 +147,7 @@ const SignUp = () => {
     const email = `${formData.emailUser}@${isCustomDomain ? formData.customDomain : formData.emailDomain}`;
   
     try {
-      const response = await axios.get(`/petShop/user/verifyEmailCode/${email}/${encodeURIComponent(String(verificationCode))}`);
+      const response = await axios.get(`/api/petShop/user/verifyEmailCode/${email}/${encodeURIComponent(String(verificationCode))}`);
   
       console.log('서버 응답:', response.data);
   
@@ -220,11 +220,11 @@ const SignUp = () => {
     console.log("전송 데이터:", userData);
 
     try {
-      const response = await axios.post('/petShop/user/userSave', userData);
+      const response = await axios.post('/api/petShop/user/userSave', userData);
       console.log('회원가입 성공:', response.data);
 
       if (faceImage) {
-        await axios.post(`/petShop/collectionFaceAdd/${encodeURIComponent(formData.businessNumber)}`, { image: faceImage });
+        await axios.post(`/api/petShop/collectionFaceAdd/${encodeURIComponent(formData.businessNumber)}`, { image: faceImage });
         console.log("얼굴 이미지 전송 완료");
       }
 

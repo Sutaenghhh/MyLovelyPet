@@ -12,7 +12,7 @@ function MonthlySalesChart() {
 
   const fetchSalesData = async (selectedYear) => {
     try {
-      const response = await axios.get(`/petShop/revenue/yearSales/${selectedYear}`);
+      const response = await axios.get(`/api/petShop/revenue/yearSales/${selectedYear}`);
       console.log('API Response:', response.data);
 
       if (response.data && response.data.monthlySales && typeof response.data.monthlySales === 'object') {

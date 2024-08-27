@@ -57,5 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://10.10.10.110:8090"
+  "proxy": "/api"
 }

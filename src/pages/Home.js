@@ -23,7 +23,7 @@ function Home() {
     console.log('Fetching sales data for calendar...');
     try {
       // 선택된 연도와 월을 경로에 포함하여 API 요청
-      const response = await axios.get(`/petShop/revenue/monthSales/${selectedYear}/${selectedMonth}`);
+      const response = await axios.get(`/api/petShop/revenue/monthSales/${selectedYear}/${selectedMonth}`);
       console.log('Response data for calendar:', response.data);
 
       // 응답 데이터에서 일일 매출 데이터 추출
@@ -56,7 +56,7 @@ function Home() {
     console.log('Fetching total sales...');
     try {
       // 현재 매출 총액을 가져오는 API 요청
-      const response = await axios.get('/petShop/revenue/dailySales');
+      const response = await axios.get('/api/petShop/revenue/dailySales');
       console.log('Response data for total sales:', response.data);
 
       // 총 매출액 또는 단일 매출 데이터 추출

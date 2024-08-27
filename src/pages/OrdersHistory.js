@@ -25,7 +25,7 @@ const OrdersHistory = () => {
 
     const token = localStorage.getItem('authToken');
     const userIdx = localStorage.getItem('userIdx');
-    const url = `/petShop/orders/select/${userIdx}/${orderDate}`;
+    const url = `/api/petShop/orders/select/${userIdx}/${orderDate}`;
 
     console.log('Fetching orders from URL:', url);
     console.log('Using token:', token);

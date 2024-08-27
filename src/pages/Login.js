@@ -24,7 +24,7 @@ const Login = () => {
     console.log('로그인 데이터:', formData);
 
     try {
-      const response = await axios.post('/petShop/authenticate', {
+      const response = await axios.post('/api/petShop/authenticate', {
         userEmail: formData.id,
         userPw: formData.password,
       });
@@ -64,7 +64,7 @@ const Login = () => {
     if (faceImage) {
       (async () => {
         try {
-          const response = await axios.post(`/petShop/compareFace`, { image: faceImage });
+          const response = await axios.post(`/api/petShop/compareFace`, { image: faceImage });
 
           console.log('서버 응답:', response);
           const { token } = response.data;

@@ -20,7 +20,7 @@ const Alarm = () => {
         }
 
         // userIdx를 포함한 요청 URL
-        const response = await axios.get(`/petShop/notice/findAll/${userIdx}`);
+        const response = await axios.get(`/api/petShop/notice/findAll/${userIdx}`);
         if (response.status === 200) {
           setNoticeList(response.data);
         } else {

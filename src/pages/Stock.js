@@ -17,7 +17,7 @@ const Stock = () => {
       const token = localStorage.getItem('authToken'); // 로컬 스토리지에서 토큰 가져오기
 
       try {
-        const response = await axios.get('/petShop/stock/selectAll', {
+        const response = await axios.get('/api/petShop/stock/selectAll', {
           headers: {
             'Authorization': `Bearer ${token}` // 요청 헤더에 토큰 포함
           }

@@ -135,7 +135,7 @@ const ProductUpdate = ({ product, closeModal }) => {
     }
 
     try {
-      await axios.put(`/petShop/product/update/${product.pdIdx}`, data, {
+      await axios.put(`/api/petShop/product/update/${product.pdIdx}`, data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

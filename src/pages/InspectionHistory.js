@@ -11,7 +11,7 @@ const InspectionHistory = () => {
     const userIdx = localStorage.getItem('userIdx'); // 로컬 스토리지에서 userIdx 가져오기
 
     try {
-      const response = await axios.get(`/petShop/inspection/select/${userIdx}/${date}`, {
+      const response = await axios.get(`/api/petShop/inspection/select/${userIdx}/${date}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

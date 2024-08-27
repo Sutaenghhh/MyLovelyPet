@@ -13,7 +13,7 @@ const Inspection = () => {
   const fetchOrders = async (orderDate) => {
     console.log(`/petShop/inspection/selectOrder/${userIdx}/${orderDate}`)
     try {
-      const response = await axios.get(`/petShop/inspection/selectOrder/${userIdx}/${orderDate}`);
+      const response = await axios.get(`/api/petShop/inspection/selectOrder/${userIdx}/${orderDate}`);
       setOrders(response.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -102,7 +102,7 @@ const Inspection = () => {
 
   const confirmSave = async (inspectionData) => {
     try {
-      const response = await axios.post(`/petShop/inspection/save/`, inspectionData, {
+      const response = await axios.post(`/api/petShop/inspection/save/`, inspectionData, {
         headers: {
           'Content-Type': 'application/json', // JSON 형식으로 데이터 전송
         }

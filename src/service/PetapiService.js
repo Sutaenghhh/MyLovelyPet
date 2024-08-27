@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://3.35.50.149/petShop';
+export const API_BASE_URL = '/api/petShop';

@@ -31,7 +31,7 @@ function PhoneNumberInput() {
     try {
       console.log(phoneNum);
       console.log(paymentKey);
-      const response = await fetch("/petShop/payment/sendPaymentList", {
+      const response = await fetch("/api/petShop/payment/sendPaymentList", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -71,7 +71,7 @@ function PhoneNumberInput() {
 
     if (sessionId) {
       try {
-        await axios.delete('/petShop/cart/deleteCart', {
+        await axios.delete('/api/petShop/cart/deleteCart', {
           params: { sessionId }
         });
         localStorage.removeItem("sessionId");

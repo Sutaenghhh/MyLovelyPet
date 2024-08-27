@@ -15,7 +15,7 @@ const Footer = () => {
       console.log("----------------------")
       try {
         // 서버에 장바구니 항목 삭제 요청 보내기
-        await axios.delete('/petShop/cart/deleteCart', {
+        await axios.delete('/api/petShop/cart/deleteCart', {
           params: { sessionId }
         });
 

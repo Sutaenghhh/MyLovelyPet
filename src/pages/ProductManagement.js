@@ -20,7 +20,7 @@ const ProductManagement = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('/petShop/product/findAll');
+      const response = await axios.get('/api/petShop/product/findAll');
       setProducts(response.data);
     } catch (error) {
       console.error('Failed to fetch products:', error);
@@ -61,7 +61,7 @@ const ProductManagement = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/petShop/product/delete/${selectedProduct.pdIdx}`);
+      await axios.delete(`/api/petShop/product/delete/${selectedProduct.pdIdx}`);
       alert('상품이 성공적으로 삭제되었습니다.');
       fetchProducts();
       closeDeleteModal(); // 삭제 후 모달 닫기
@@ -72,7 +72,7 @@ const ProductManagement = () => {
   };
 
   const handleQRDownload = async (product) => {
-    const qrDownloadUrl = `/petShop/download/QrCodepdIdx${product.pdIdx}`;
+    const qrDownloadUrl = `/api/petShop/download/QrCodepdIdx${product.pdIdx}`;
     try {
       const response = await axios.get(qrDownloadUrl, {
         responseType: 'blob', // 데이터를 blob 형식으로 받음

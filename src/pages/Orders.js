@@ -14,7 +14,7 @@ const Orders = () => {
     const token = localStorage.getItem('authToken');
 
     try {
-      const response = await axios.get('/petShop/orders/selectStock', {
+      const response = await axios.get('/api/petShop/orders/selectStock', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -85,7 +85,7 @@ const Orders = () => {
     };
 
     try {
-      await axios.post('/petShop/orders/save', orderData, {
+      await axios.post('/api/petShop/orders/save', orderData, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

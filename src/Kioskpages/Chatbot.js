@@ -85,7 +85,7 @@ const Chatbot = () => {
     const userNum = 1;
 
     try {
-      const response = await axios.get(`/petShop/chatbot/${userNum}/${userInput}`);
+      const response = await axios.get(`/api/petShop/chatbot/${userNum}/${userInput}`);
       const product = response.data;
 
       if (Array.isArray(product) && product.length > 0) {
@@ -147,7 +147,7 @@ const Chatbot = () => {
       setMessages(prevMessages => [...prevMessages, { text: '잠시만 기다려 주세요...'}]);
       try {
         const mailType = "종이";
-        await axios.get(`/petShop/chatbot/${mailType}`);
+        await axios.get(`/api/petShop/chatbot/${mailType}`);
         setMessages(prevMessages => [...prevMessages, { text: '점주에게 안내 메일이 발송되었습니다.', sender: 'bot' }]);
         setQuickRepliesVisible(true);
         setIsUserInputEnabled(false);
@@ -161,7 +161,7 @@ const Chatbot = () => {
       setMessages(prevMessages => [...prevMessages, { text: '잠시만 기다려 주세요...', sender: 'bot' }]);
       try {
         const mailType = "청결";
-        await axios.get(`/petShop/chatbot/${mailType}`);
+        await axios.get(`/api/petShop/chatbot/${mailType}`);
         setMessages(prevMessages => [...prevMessages, { text: '점주에게 안내 메일이 발송되었습니다.', sender: 'bot' }]);
         setQuickRepliesVisible(true);
         setIsUserInputEnabled(false);

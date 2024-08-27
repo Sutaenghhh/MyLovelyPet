@@ -25,7 +25,7 @@ export function SuccessPage() {
 
     async function confirm() {
       try {
-        const response = await fetch("/petShop/payment/confirm", {
+        const response = await fetch("/api/petShop/payment/confirm", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -89,7 +89,7 @@ export function SuccessPage() {
     if (sessionId) {
       console.error(sessionId);
         try {
-            await axios.delete('/petShop/cart/deleteCart', {
+            await axios.delete('/api/petShop/cart/deleteCart', {
                 params: { sessionId }
             });
             localStorage.removeItem("sessionId");

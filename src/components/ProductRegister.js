@@ -112,7 +112,7 @@ const ProductRegister = ({ closeModal }) => {
     }
 
     try {
-      await axios.post('/petShop/product/save', data, {
+      await axios.post('/api/petShop/product/save', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -38,7 +38,7 @@ const PetPage = () => {
   const fetchCartList = useCallback(async () => {
     try {
       const sessionId = getSessionId();
-      const response = await axios.get('/petShop/cart/cartList', {
+      const response = await axios.get('/api/petShop/cart/cartList', {
         params: { sessionId }
       });
 
@@ -67,7 +67,7 @@ const PetPage = () => {
 
   const debouncedUpdateCartOnServer = useCallback(
     debounce((sessionId, pdIdx, cartCount) => {
-      axios.put('/petShop/cart/updateCart', [
+      axios.put('/api/petShop/cart/updateCart', [
         {
           sessionId,
           pdIdx,
@@ -98,11 +98,9 @@ const PetPage = () => {
     
     try {
       console.log(sessionId, pdIdx)
-      console.log(`Deleted item with pdIdx=${pdIdx} and sessionId=${sessionId}`);
-      await axios.delete('/petShop/cart/deleteCartItem', {
+      await axios.delete('/api/petShop/cart/deleteCartItem', {
         params: { sessionId, pdIdx }
       });
-      console.log(`Deleted item with pdIdx=${pdIdx} and sessionId=${sessionId}`);
       console.log(sessionId, pdIdx)
       Swal.fire({
         title: '상품 삭제',
@@ -149,7 +147,7 @@ const PetPage = () => {
     
     if (pendingUpdates.length > 0) {
       try {
-        await axios.put('/petShop/cart/updateCart', pendingUpdates);
+        await axios.put('/api/petShop/cart/updateCart', pendingUpdates);
         setPendingUpdates([]);
         navigate('/payment/checkout');
       } catch (error) {
@@ -172,7 +170,7 @@ const PetPage = () => {
 
     try {
       // 얼굴 이미지를 서버로 전송
-      await axios.post('/petShop/cart/customerFaceCompare', { image: imageData });
+      await axios.post('/api/petShop/cart/customerFaceCompare', { image: imageData });
      
     } catch (error) {
       console.error('Error sending face image:', error);

@@ -23,7 +23,7 @@ const StreamViewer = () => {
             setError(null);
 
             try {
-                const response = await axios.get('/petShop/stream', {
+                const response = await axios.get('/api/petShop/stream', {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -45,7 +45,7 @@ const StreamViewer = () => {
 
         const fetchMotionData = async () => {
             try {
-                const response = await axios.get('/petShop/motion', {
+                const response = await axios.get('/api/petShop/motion', {
                     headers: {
                         'Content-Type': 'application/json',
                     },

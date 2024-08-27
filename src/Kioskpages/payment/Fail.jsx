@@ -11,7 +11,7 @@ export function FailPage() {
 
       if (image) {
         try {
-          await fetch("/petShop/cart/blacklistFaceAdd", {
+          await fetch("/api/petShop/cart/blacklistFaceAdd", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
