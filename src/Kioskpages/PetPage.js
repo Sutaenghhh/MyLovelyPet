@@ -95,7 +95,7 @@ const PetPage = () => {
     setPendingUpdates(prev => prev.filter(update => update.pdIdx !== pdIdx));
     
     try {
-      console.log('/petShop/cart/updateCart')
+      console.log('-----------------------------------------')
       await axios.delete('/petShop/cart/deleteCartItem', {
         params: { sessionId, pdIdx }
       });

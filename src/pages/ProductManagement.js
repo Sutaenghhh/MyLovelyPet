@@ -131,7 +131,7 @@ const ProductManagement = () => {
                 <td>{product.category ? product.category.ctgNum1 : 'N/A'}</td>
                 <td>{product.category ? product.category.ctgNum2 : 'N/A'}</td>
                 <td>{product.pdLimit}</td>
-                <td>{product.pdPrice}</td>
+                <td>{new Intl.NumberFormat().format(product.pdPrice)} 원</td> {/* 가격에 , 찍기 */}
                 <td>
                   <button onClick={() => handleQRDownload(product)}>QR</button>
                   <button onClick={() => openUpdateModal(product)}>수정</button>

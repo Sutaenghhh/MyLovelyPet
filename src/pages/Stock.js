@@ -99,7 +99,7 @@ const Stock = () => {
                 <td>{item.product.category.ctgNum2}</td>
                 <td>{item.stCount}</td>
                 <td>{item.product.pdLimit}</td>
-                <td>{item.product.pdPrice}</td>
+                <td>{item.product.pdPrice.toLocaleString()} 원</td> {/* 가격에 쉼표 추가 */}
               </tr>
             ))}
           </tbody>
