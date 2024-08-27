@@ -12,6 +12,7 @@ const Footer = () => {
     const sessionId = localStorage.getItem("sessionId");
 
     if (sessionId) {
+      console.log("----------------------")
       try {
         // 서버에 장바구니 항목 삭제 요청 보내기
         await axios.delete('/petShop/cart/deleteCart', {
@@ -20,13 +21,13 @@ const Footer = () => {
 
         localStorage.removeItem("sessionId");
 
-        navigate('/');
+        navigate('/kioskHome');
       } catch (error) {
         console.error('Error deleting cart items:', error);
         alert('장바구니 항목을 삭제하는 중 오류가 발생했습니다.');
       }
     } else {
-      navigate('/');
+      navigate('/kioskHome');
     }
   };
 

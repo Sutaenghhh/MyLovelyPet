@@ -131,7 +131,7 @@ const SignUp = () => {
     const email = `${formData.emailUser}@${isCustomDomain ? formData.customDomain : formData.emailDomain}`;
     
     try {
-      await axios.get(`/api/petShop/user/sendEmailCode/${email}`);
+      await axios.get(`/petShop/user/sendEmailCode/${email}`);
       setVerificationModal(true);
     } catch (error) {
       console.error('이메일 인증 요청 실패:', error);

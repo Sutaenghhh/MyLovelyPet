@@ -87,12 +87,13 @@ export function SuccessPage() {
     const sessionId = localStorage.getItem("sessionId");
 
     if (sessionId) {
+      console.error(sessionId);
         try {
             await axios.delete('/petShop/cart/deleteCart', {
                 params: { sessionId }
             });
             localStorage.removeItem("sessionId");
-        } catch (error) {
+        } catch (error) { 
             console.error("Error deleting cart items:", error);
             // alert("장바구니 항목을 삭제하는 중 오류가 발생했습니다.");
             Swal.fire({

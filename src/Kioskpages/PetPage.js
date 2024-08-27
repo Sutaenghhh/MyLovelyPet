@@ -86,19 +86,24 @@ const PetPage = () => {
   );
 
   const handleRemoveItem = useCallback(async (pdIdx) => {
-    const sessionId = getSessionId();
+    const sessionId = localStorage.getItem("sessionId");
+
 
     const updatedItems = items.filter(item => item.pdIdx !== pdIdx);
     setAllCart(updatedItems);
     setItems(updatedItems);
 
     setPendingUpdates(prev => prev.filter(update => update.pdIdx !== pdIdx));
+    console.log(sessionId, pdIdx)
     
     try {
-      console.log('-----------------------------------------')
+      console.log(sessionId, pdIdx)
+      console.log(`Deleted item with pdIdx=${pdIdx} and sessionId=${sessionId}`);
       await axios.delete('/petShop/cart/deleteCartItem', {
         params: { sessionId, pdIdx }
       });
+      console.log(`Deleted item with pdIdx=${pdIdx} and sessionId=${sessionId}`);
+      console.log(sessionId, pdIdx)
       Swal.fire({
         title: '상품 삭제',
         text: '상품 삭제에 성공했습니다.',
@@ -115,7 +120,7 @@ const PetPage = () => {
       });
     }
   }, [getSessionId, items]);
-
+  
   const handlecartCountChange = useCallback((pdIdx, delta) => {
     const updatedItems = items.map(item =>
       item.pdIdx === pdIdx ? { ...item, cartCount: Math.max(1, item.cartCount + delta) } : item
@@ -201,6 +206,7 @@ const PetPage = () => {
       }
     };
   }, []);
+
 
   return (
     <div className="PetPage-Container">
