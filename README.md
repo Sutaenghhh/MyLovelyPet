@@ -44,23 +44,23 @@ ERD
   - <image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
   
 - 발주
-- <image src="https://github.com/user-attachments/assets/1d2c879f-83f2-4eae-ad2c-71cfb53e5e96" with="200" height="200"/>
+ <image src="https://github.com/user-attachments/assets/1d2c879f-83f2-4eae-ad2c-71cfb53e5e96" with="200" height="200"/>
 
 - 검수
-- <image src="https://github.com/user-attachments/assets/1b79dd24-9925-468d-a507-b99f1491b5aa" with="200" height="200"/>
+ <image src="https://github.com/user-attachments/assets/1b79dd24-9925-468d-a507-b99f1491b5aa" with="200" height="200"/>
 
 - 실시간 CCTV
-- 화재경보 <image src="https://github.com/user-attachments/assets/3debcbc9-ea41-45f6-926b-520ac0210c57" with="200" height="200"/>
-- 응급환자 발생 <image src="https://github.com/user-attachments/assets/90503859-19b1-4cc7-b1aa-bcee5de4f1d2" with="200" height="200"/>
+ 화재경보 <image src="https://github.com/user-attachments/assets/3debcbc9-ea41-45f6-926b-520ac0210c57" with="200" height="200"/>
+ 응급환자 발생 <image src="https://github.com/user-attachments/assets/90503859-19b1-4cc7-b1aa-bcee5de4f1d2" with="200" height="200"/>
 
 
 
  키오스크 웹 
  - 상품 스캔(QR코드)
- - <image src="https://github.com/user-attachments/assets/10d5c210-a059-4090-8af8-3dd6e0d530be" with="200" height="200"/>
+  <image src="https://github.com/user-attachments/assets/10d5c210-a059-4090-8af8-3dd6e0d530be" with="200" height="200"/>
 
  - 블랙리스트 관리 기능
  - TossPayments 결제
- - <image src="https://github.com/user-attachments/assets/e67fde50-6341-43b9-ae52-91c9ec630e29" with="200" height="200"/>
+  <image src="https://github.com/user-attachments/assets/e67fde50-6341-43b9-ae52-91c9ec630e29" with="200" height="200"/>
 
  - 결제내역 SMS 전송 
