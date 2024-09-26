@@ -70,7 +70,9 @@ ERD
  <image src="https://github.com/user-attachments/assets/1b79dd24-9925-468d-a507-b99f1491b5aa" with="200" height="200"/>
 
 - 실시간 CCTV
+- 
  화재경보 <image src="https://github.com/user-attachments/assets/3debcbc9-ea41-45f6-926b-520ac0210c57" with="200" height="200"/>
+ 
  응급환자 발생 <image src="https://github.com/user-attachments/assets/90503859-19b1-4cc7-b1aa-bcee5de4f1d2" with="200" height="200"/>
 
 
