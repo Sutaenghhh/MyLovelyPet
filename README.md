@@ -56,9 +56,11 @@ ERD
  <image src="https://github.com/user-attachments/assets/de4e14fc-844e-46a9-a8da-0e1083d7635b" with="200" height="200"/>
 
 - 회원가입
+  
   <image src="https://github.com/user-attachments/assets/08cc7477-eae7-4d9d-831a-364eb2a6cf6c" with="200" height="200"/> <image src="https://github.com/user-attachments/assets/9998d6d8-d287-4e37-a747-e43fb75f3ad6" with="200" height="200"/>
 
  - 재고현황
+   
    <image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
   
 - 발주
