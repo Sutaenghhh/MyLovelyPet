@@ -78,16 +78,18 @@ ERD
  <image src="https://github.com/user-attachments/assets/90503859-19b1-4cc7-b1aa-bcee5de4f1d2" with="200" height="200"/>
 
 
-
+----------------------------------------------------------------------------------------------------------------------------------
 
  키오스크 웹 
  - 상품 스캔(QR코드)
   <image src="https://github.com/user-attachments/assets/10d5c210-a059-4090-8af8-3dd6e0d530be" with="200" height="200"/>
   
  - TossPayments 결제
+   
   <image src="https://github.com/user-attachments/assets/e67fde50-6341-43b9-ae52-91c9ec630e29" with="200" height="200"/>
 
  - 결제내역 SMS 전송
+
    <image src="https://github.com/user-attachments/assets/99a9b8b8-d696-4569-a718-3d742a2123cc" with="200" height="200"/>
 
 - 블랙리스트 관리
