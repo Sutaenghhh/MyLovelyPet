@@ -32,16 +32,15 @@ ERD
 ----------------------------------------------------------------------------------------------------------------------------------
 점주 웹 
 - 매출
-- <image src="https://github.com/user-attachments/assets/4c2e3c9f-66d1-4d58-84c0-0d929dbd2e4c" with="200" height="200"/>
-- 실시간 매출
-- 알림
+ <image src="https://github.com/user-attachments/assets/4c2e3c9f-66d1-4d58-84c0-0d929dbd2e4c" with="200" height="200"/>
+ 
 - 로그인(얼굴인식)
-- <image src="https://github.com/user-attachments/assets/de4e14fc-844e-46a9-a8da-0e1083d7635b" with="200" height="200"/>
+ <image src="https://github.com/user-attachments/assets/de4e14fc-844e-46a9-a8da-0e1083d7635b" with="200" height="200"/>
 - 회원가입
-- <image src="https://github.com/user-attachments/assets/08cc7477-eae7-4d9d-831a-364eb2a6cf6c" with="200" height="200"/> <image src="https://github.com/user-attachments/assets/9998d6d8-d287-4e37-a747-e43fb75f3ad6" with="200" height="200"/>
+ <image src="https://github.com/user-attachments/assets/08cc7477-eae7-4d9d-831a-364eb2a6cf6c" with="200" height="200"/> <image src="https://github.com/user-attachments/assets/9998d6d8-d287-4e37-a747-e43fb75f3ad6" with="200" height="200"/>
 
  - 재고현황
-  - <image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
+   <image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
   
 - 발주
  <image src="https://github.com/user-attachments/assets/1d2c879f-83f2-4eae-ad2c-71cfb53e5e96" with="200" height="200"/>
@@ -58,9 +57,12 @@ ERD
  키오스크 웹 
  - 상품 스캔(QR코드)
   <image src="https://github.com/user-attachments/assets/10d5c210-a059-4090-8af8-3dd6e0d530be" with="200" height="200"/>
-
- - 블랙리스트 관리 기능
+  
  - TossPayments 결제
   <image src="https://github.com/user-attachments/assets/e67fde50-6341-43b9-ae52-91c9ec630e29" with="200" height="200"/>
 
- - 결제내역 SMS 전송 
+ - 결제내역 SMS 전송
+   <image src="https://github.com/user-attachments/assets/99a9b8b8-d696-4569-a718-3d742a2123cc" with="200" height="200"/>
+
+- 블랙리스트 관리
+  * 장바구니페이지에서 결제를 하지 않고 넘어가는 사람들을 AWS Recognition Collection에 저장후 다음번에 또 와서 키오스크 이용시 장바구니 페이지에서 블랙리스트 얼굴 인식 후 점주에게 안내메일 전송 
