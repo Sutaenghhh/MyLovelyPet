@@ -40,8 +40,8 @@ ERD
 - 회원가입
 - <image src="https://github.com/user-attachments/assets/08cc7477-eae7-4d9d-831a-364eb2a6cf6c" with="200" height="200"/> <image src="https://github.com/user-attachments/assets/9998d6d8-d287-4e37-a747-e43fb75f3ad6" with="200" height="200"/>
 
- -재고현황
-  -<image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
+ - 재고현황
+  - <image src="https://github.com/user-attachments/assets/40d98c38-09e1-457e-b86c-604ebc354c26" with="200" height="200"/>
   
 - 발주
 - <image src="https://github.com/user-attachments/assets/1d2c879f-83f2-4eae-ad2c-71cfb53e5e96" with="200" height="200"/>
