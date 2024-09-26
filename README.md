@@ -32,8 +32,11 @@ ERD
 ----------------------------------------------------------------------------------------------------------------------------------
 점주 웹 
 - 매출
+- <image src="https://github.com/user-attachments/assets/4c2e3c9f-66d1-4d58-84c0-0d929dbd2e4c" with="200" height="200"/>
 - 실시간 매출
-- 알림, 로그인
+- 알림
+- 로그인(얼굴인식)
+- <image src="https://github.com/user-attachments/assets/de4e14fc-844e-46a9-a8da-0e1083d7635b" with="200" height="200"/>
 - 회원가입
 - 상품관리
 - 발주
