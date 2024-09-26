@@ -19,6 +19,7 @@
 
 --------------------------------------------------------------------------------------------------
 적용스킬 
+
 BE 
 -  ![JAVA](	https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![SPRING](	https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
  
@@ -40,7 +41,7 @@ DB
 - COOLSMS
 - GEMINI
 - TossPayments
-
+----------------------------------------------------------------------------------------------------------------------------
 아키텍처
 <image src="https://github.com/user-attachments/assets/40224973-7375-452d-92ae-29df05afe29d" with="200" height="200"/>
 ---------------------------------------------------------------------------------------------------------------------------------
