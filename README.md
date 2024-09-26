@@ -73,6 +73,7 @@ ERD
 
 
 
+
  키오스크 웹 
  - 상품 스캔(QR코드)
   <image src="https://github.com/user-attachments/assets/10d5c210-a059-4090-8af8-3dd6e0d530be" with="200" height="200"/>
