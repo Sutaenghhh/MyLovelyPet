@@ -1,6 +1,8 @@
 반려동물 용품 무인매장 관리 시스템 
 
 적용스킬 
+![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+
 BE 
 - SPRING, JAVA, MAVEN 
 
