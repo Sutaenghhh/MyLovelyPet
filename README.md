@@ -18,7 +18,9 @@ DB
 - GEMINI
 - TossPayments
 - 
-  
+
+아키텍처
+![아키텍처](https://github.com/user-attachments/assets/40224973-7375-452d-92ae-29df05afe29d)
 
 점주 웹 
 - 매출
